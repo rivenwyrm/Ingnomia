@@ -314,6 +314,18 @@ AvailableMaterial* NRequiredItem::GetSelectedMaterial() const
 	return _selectedMaterial;
 }
 
+char * NRequiredItem::GetSelectedMaterialType() const
+{
+	if (_selectedMaterial != NULL)
+	{
+		_selectedMaterial->GetName();
+	}
+	else
+	{
+		return "any";
+	}
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 AvailableMaterial::AvailableMaterial( QString sid, int amount, QString item )
 {
@@ -1473,6 +1485,7 @@ NS_IMPLEMENT_REFLECTION( NRequiredItem )
 	NsProp( "Amount", &NRequiredItem::amount );
 	NsProp( "Materials", &NRequiredItem::availableMaterials );
 	NsProp( "SelectedMaterial", &NRequiredItem::GetSelectedMaterial, &NRequiredItem::SetSelectedMaterial );
+	NsProp( "SelectedMaterialType", &NRequiredItem::GetSelectedMaterialType );
 }
 
 NS_IMPLEMENT_REFLECTION( AvailableMaterial )

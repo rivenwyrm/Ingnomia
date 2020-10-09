@@ -107,6 +107,7 @@ public:
 
 	const char* GetName() const;
 	const char* amount() const;
+	char* GetSelectedMaterialType() const;
 	const QString sid();
 
 	Noesis::ObservableCollection<AvailableMaterial>* availableMaterials() const;

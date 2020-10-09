@@ -362,7 +362,7 @@ void TileInfoModel::onUpdateTileInfo( const GuiTileInfo& tileInfo )
 		auto item = MakePtr<NRequiredItem>( ri.text, ri.count );
 		auto mat = MakePtr<AvailableMaterial>( ri.material, ri.count, ri.text );
 		
-		item.SetSelectedMaterial( mat );
+		item->SetSelectedMaterial( mat );
 		_jobTabRequiredItems->Add( item );
 	}
 

@@ -360,7 +360,7 @@ void TileInfoModel::onUpdateTileInfo( const GuiTileInfo& tileInfo )
 	for ( auto ri : tileInfo.requiredItems )
 	{
 		auto item = MakePtr<NRequiredItem>( ri.text, ri.count );
-
+		item.SetSelectedMaterial( ri.material );
 		_jobTabRequiredItems->Add( item );
 	}
 

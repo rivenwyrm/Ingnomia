@@ -108,6 +108,19 @@
 	<DataTemplate x:Key="ItemTemplate16">
 		<TextBlock Text="{Binding Name}" HorizontalAlignment="Left" FontSize="16" Margin="1"/>
 	</DataTemplate>
+
+	<DataTemplate x:Key="ItemCountTemplate16">
+	  <Grid x:Name="ItemCountRow" RenderTransformOrigin="0.5,0.5" Margin="2">
+		<Grid.ColumnDefinitions>
+		  <ColumnDefinition Width="1*"/>
+		  <ColumnDefinition Width="6*"/>
+		  <ColumnDefinition Width="3*"/>
+		</Grid.ColumnDefinitions>
+		<TextBlock Text="{Binding Amount}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Grid.Column="0"/>
+		<TextBlock x:Name="ItemName" Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Grid.Column="1"/>
+		<TextBlock Text="{Binding SelectedMaterial}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Grid.Column="2"/>
+	  </Grid>
+	</DataTemplate>
 	
 	<DataTemplate x:Key="ItemTemplate">
         <TextBlock Text="{Binding Name}"/>

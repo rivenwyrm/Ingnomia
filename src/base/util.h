@@ -36,7 +36,8 @@ struct Tile;
 class Util
 {
 public:
-	static QStringList seedItems( QString plantType, QString material = "any" );
+	static const QString any;
+	static QStringList seedItems( QString plantType, QString material = any );
 
 	static QString itemName( QString itemID );
 	static QString materialName( QString materialID );

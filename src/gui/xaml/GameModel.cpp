@@ -268,10 +268,10 @@ NRequiredItem::NRequiredItem( QString sid, int amount )
 
 	auto mats = Global::inv().materialCountsForItem( sid );
 
-	_availableMaterials->Add( MakePtr<AvailableMaterial>( "any", mats["any"], _sid ) );
+	_availableMaterials->Add( MakePtr<AvailableMaterial>( Util::any, mats[Util::any], _sid ) );
 	for ( auto key : mats.keys() )
 	{
-		if ( key != "any" )
+		if ( key != Util::any )
 		{
 			_availableMaterials->Add( MakePtr<AvailableMaterial>( key, mats[key], _sid ) );
 		}
@@ -322,7 +322,7 @@ char * NRequiredItem::GetSelectedMaterialType() const
 	}
 	else
 	{
-		return "any";
+		return Util::any.toStdString().c_str();
 	}
 }
 

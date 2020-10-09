@@ -40,6 +40,7 @@ int Util::minutesPerHour = 1;
 int Util::hoursPerDay    = 1;
 int Util::ticksPerDay    = 1;
 int Util::daysPerSeason  = 1;
+const QString Util::any = "any";
 
 Util::Util()
 {

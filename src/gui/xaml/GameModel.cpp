@@ -314,7 +314,7 @@ AvailableMaterial* NRequiredItem::GetSelectedMaterial() const
 	return _selectedMaterial;
 }
 
-char * NRequiredItem::GetSelectedMaterialType() const
+const char * NRequiredItem::GetSelectedMaterialType() const
 {
 	if (_selectedMaterial != NULL)
 	{

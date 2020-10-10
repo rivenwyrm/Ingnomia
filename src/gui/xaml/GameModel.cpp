@@ -316,13 +316,13 @@ AvailableMaterial* NRequiredItem::GetSelectedMaterial() const
 
 const char * NRequiredItem::GetSelectedMaterialType() const
 {
-	if (_selectedMaterial != NULL)
+	if ( strlen(_selectedMaterial->GetName()) != 0 )
 	{
-		QString name = "$MaterialName_";
-		return S::s( name + _selectedMaterial->sid() ).toStdString().c_str();
+		return _selectedMaterial->GetName();
 	}
 	else
 	{
+		// basically an error case
 		return Util::any.toStdString().c_str();
 	}
 }

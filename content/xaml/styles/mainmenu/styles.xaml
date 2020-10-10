@@ -114,11 +114,9 @@
 		<Grid.ColumnDefinitions>
 		  <ColumnDefinition Width="1*"/>
 		  <ColumnDefinition Width="6*"/>
-		  <ColumnDefinition Width="3*"/>
 		</Grid.ColumnDefinitions>
 		<TextBlock Text="{Binding Amount}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Grid.Column="0"/>
 		<TextBlock Text="{Binding SelectedMaterialType}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Grid.Column="1"/>
-		<TextBlock Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Grid.Column="2"/>
 	  </Grid>
 	</DataTemplate>
 	

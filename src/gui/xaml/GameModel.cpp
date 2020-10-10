@@ -318,7 +318,7 @@ const char * NRequiredItem::GetSelectedMaterialType() const
 {
 	if (_selectedMaterial != NULL)
 	{
-		_selectedMaterial->GetName();
+		return _selectedMaterial->GetName();
 	}
 	else
 	{

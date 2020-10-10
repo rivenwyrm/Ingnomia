@@ -318,7 +318,8 @@ const char * NRequiredItem::GetSelectedMaterialType() const
 {
 	if (_selectedMaterial != NULL)
 	{
-		return _selectedMaterial->GetName();
+		QString name = "$MaterialName_";
+		return S::s( name + _selectedMaterial->sid() ).toStdString().c_str();
 	}
 	else
 	{

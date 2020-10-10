@@ -90,9 +90,12 @@ public:
 	const char* GetName() const;
 	const char* sid() const;
 	const char* amount() const;
+	const char* material() const;
 
 private:
 	Noesis::String _name;
+	Noesis::String _material;
+	Noesis::String _item;
 	Noesis::String _sid;
 	Noesis::String _amount;
 
@@ -108,6 +111,7 @@ public:
 	const char* GetName() const;
 	const char* amount() const;
 	const char* GetSelectedMaterialType() const;
+	const char* GetMaterialType() const;
 	const QString sid();
 
 	Noesis::ObservableCollection<AvailableMaterial>* availableMaterials() const;

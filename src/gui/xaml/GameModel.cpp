@@ -314,9 +314,9 @@ AvailableMaterial* NRequiredItem::GetSelectedMaterial() const
 	return _selectedMaterial;
 }
 
-const char * NRequiredItem::GetSelectedMaterialType() const
+const char* NRequiredItem::GetSelectedMaterialType() const
 {
-	if ( strlen(_selectedMaterial->GetName()) != 0 )
+	if ( _selectedMaterial != NULL )
 	{
 		return _selectedMaterial->GetName();
 	}
@@ -327,10 +327,24 @@ const char * NRequiredItem::GetSelectedMaterialType() const
 	}
 }
 
+const char* NRequiredItem::GetMaterialType() const
+{
+	if ( _selectedMaterial != NULL )
+	{
+		return _selectedMaterial->material();
+	}
+	else
+	{
+		return Util::any.toStdString().c_str();
+	}
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 AvailableMaterial::AvailableMaterial( QString sid, int amount, QString item )
 {
-	_name   = ( S::s( "$MaterialName_" + sid ) + " " + S::s( "$ItemName_" + item ) ).toStdString().c_str();
+	_material = S::s( "$MaterialName_" + sid ).toStdString().c_str();
+	_item     = S::s( "$ItemName_" + item ).toStdString().c_str();
+	_name   = ( _material + " " + _item );
 	_sid    = sid.toStdString().c_str();
 	_amount = QString::number( amount ).toStdString().c_str();
 }
@@ -349,6 +363,11 @@ const char* AvailableMaterial::amount() const
 {
 	return _amount.Str();
 }
+const char* AvailableMaterial::material() const
+{
+	return _material.Str();
+}
+
 #pragma endregion Buttons
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1487,6 +1506,7 @@ NS_IMPLEMENT_REFLECTION( NRequiredItem )
 	NsProp( "Materials", &NRequiredItem::availableMaterials );
 	NsProp( "SelectedMaterial", &NRequiredItem::GetSelectedMaterial, &NRequiredItem::SetSelectedMaterial );
 	NsProp( "SelectedMaterialType", &NRequiredItem::GetSelectedMaterialType );
+	NsProp( "MaterialType", &NRequiredItem::GetSelectedMaterialType );
 }
 
 NS_IMPLEMENT_REFLECTION( AvailableMaterial )

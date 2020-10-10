@@ -1506,7 +1506,7 @@ NS_IMPLEMENT_REFLECTION( NRequiredItem )
 	NsProp( "Materials", &NRequiredItem::availableMaterials );
 	NsProp( "SelectedMaterial", &NRequiredItem::GetSelectedMaterial, &NRequiredItem::SetSelectedMaterial );
 	NsProp( "SelectedMaterialType", &NRequiredItem::GetSelectedMaterialType );
-	NsProp( "MaterialType", &NRequiredItem::GetSelectedMaterialType );
+	NsProp( "MaterialType", &NRequiredItem::GetMaterialType );
 }
 
 NS_IMPLEMENT_REFLECTION( AvailableMaterial )

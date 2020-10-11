@@ -314,10 +314,18 @@ AvailableMaterial* NRequiredItem::GetSelectedMaterial() const
 	return _selectedMaterial;
 }
 
+const char* NRequiredItem::selectedMaterialType() const
+{
+	return _selectedMaterial->material();
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 AvailableMaterial::AvailableMaterial( QString sid, int amount, QString item )
 {
-	_name   = ( S::s( "$MaterialName_" + sid ) + " " + S::s( "$ItemName_" + item ) ).toStdString().c_str();
+	_material = S::s( "$MaterialName_" + sid ).toStdString().c_str();
+	_item     = S::s( "$ItemName_" + item ).toStdString().c_str();
+	_name   = (_material + " " +  _item);
 	_sid    = sid.toStdString().c_str();
 	_amount = QString::number( amount ).toStdString().c_str();
 }
@@ -336,6 +344,12 @@ const char* AvailableMaterial::amount() const
 {
 	return _amount.Str();
 }
+
+const char* AvailableMaterial::material() const
+{
+	return _material.Str();
+}
+
 #pragma endregion Buttons
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1471,6 +1485,7 @@ NS_IMPLEMENT_REFLECTION( NRequiredItem )
 {
 	NsProp( "Name", &NRequiredItem::GetName );
 	NsProp( "Amount", &NRequiredItem::amount );
+	NsProp( "SelectedMaterialType", &NRequiredItem::selectedMaterialType );
 	NsProp( "Materials", &NRequiredItem::availableMaterials );
 	NsProp( "SelectedMaterial", &NRequiredItem::GetSelectedMaterial, &NRequiredItem::SetSelectedMaterial );
 }

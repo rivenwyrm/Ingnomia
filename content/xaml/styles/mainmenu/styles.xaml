@@ -124,6 +124,7 @@
 				  ItemTemplate="{StaticResource ItemTemplate16}"
 				  Grid.Column="2"/>
 	  </Grid>
+	</DataTemplate>
 	
 	<DataTemplate x:Key="ItemTemplate">
         <TextBlock Text="{Binding Name}"/>
